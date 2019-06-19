@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { SafeAreaView, Text, StyleSheet, Button } from 'react-native';
 import { Permissions, Notifications } from 'expo';
 import firebase from 'firebase';
+import { Card } from '../components/Card';
+import { ScrollView } from 'react-native-gesture-handler';
 
 class DashboardScreen extends Component {
   registerForPushNotificationsAsync = async () => {
-    console.log('30303030');
     const { status: existingStatus } = await Permissions.getAsync(
       Permissions.NOTIFICATIONS
     );
-    console.log('40404040');
 
     let finalStatus = existingStatus;
 
@@ -21,46 +21,44 @@ class DashboardScreen extends Component {
       const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
       finalStatus = status;
     }
-    console.log('50505050');
 
     // Stop here if the user did not grant permissions
     if (finalStatus !== 'granted') {
-      console.log('000000');
       return;
     }
-    console.log('60606060');
 
     try {
-      console.log('777777');
       // Get the token that uniquely identifies this device
       let token = await Notifications.getExpoPushTokenAsync();
 
       // POST the token to your backend server from where you can retrieve it to send push notifications.
       firebase
         .database()
-        .ref('users' + this.currentUser.uid + '/push_token')
+        .ref('users/' + this.currentUser.uid + '/push_token')
         .set(token);
     } catch (error) {
-      console.log('888888');
-
       console.log(error);
     }
   };
 
   async componentDidMount() {
-    console.log('10101010');
     this.currentUser = await firebase.auth().currentUser;
-    console.log('20202020');
-
     await this.registerForPushNotificationsAsync();
   }
 
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
+        <ScrollView horizontal contentContainerStyle={styles.contentContainer}>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </ScrollView>
         <Text>DashboardScreen</Text>
         <Button title="Sign out" onPress={() => firebase.auth().signOut()} />
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -70,6 +68,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'flex-end'
+  },
+  contentContainer: {
+    paddingVertical: 20,
+    height: 300,
+    backgroundColor: 'red'
   }
 });

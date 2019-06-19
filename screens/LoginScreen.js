@@ -27,14 +27,11 @@ class LoginScreen extends Component {
         unsubscribe();
         // Check if we are already signed-in Firebase with the correct user.
         if (!this.isUserEqual(googleUser, firebaseUser)) {
-          console.log('1111111');
           // Build Firebase credential with the Google ID token.
           var credential = firebase.auth.GoogleAuthProvider.credential(
             googleUser.idToken,
             googleUser.accessToken
           );
-
-          console.log('222222');
 
           // Sign in with credential from the Google user.
           firebase
@@ -42,7 +39,6 @@ class LoginScreen extends Component {
             .signInWithCredential(credential)
             .then(function(result) {
               console.log('user signed in ');
-              console.log('333333');
 
               if (result.additionalUserInfo.isNewUser) {
                 firebase
@@ -59,8 +55,6 @@ class LoginScreen extends Component {
                     // console.log('Snapshot', snapshot);
                   });
               } else {
-                console.log('44444');
-
                 firebase
                   .database()
                   .ref('/users/' + result.user.uid)
