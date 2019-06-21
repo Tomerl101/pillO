@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet, Button, Image } from 'react-native';
+import {
+  View,
+  ScrollView,
+  TouchableOpacity,
+  StyleSheet,
+  Button,
+  Image
+} from 'react-native';
 import { Permissions, Notifications } from 'expo';
 import { Ionicons, EvilIcons, MaterialIcons } from '@expo/vector-icons';
 import firebase from 'firebase';
@@ -62,7 +69,9 @@ class DashboardScreen extends Component {
           text={'Sunday Jun 17'}
           leftIcon={<EvilIcons name="calendar" size={42} color="#2c3e50" />}
           rightIcon={
-            <MaterialIcons name="filter-list" size={28} color="#2c3e50" />
+            <TouchableOpacity>
+              <MaterialIcons name="filter-list" size={28} color="#2c3e50" />
+            </TouchableOpacity>
           }
         />
 
@@ -71,16 +80,16 @@ class DashboardScreen extends Component {
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.contentContainer}
         >
-          <Card>
+          <Card onPress={this.onCardPress}>
             <Pill colors={['#FFB692', '#EA5455']} />
           </Card>
-          <Card>
+          <Card onPress={this.onCardPress}>
             <Pill colors={['#FFEB71', '#F8D800']} />
           </Card>
-          <Card>
+          <Card onPress={this.onCardPress}>
             <Pill colors={['#AABCFF', '#0396FF']} />
           </Card>
-          <Card>
+          <Card onPress={this.onCardPress}>
             <Pill colors={['#8FFBB8', '#28C76F']} />
           </Card>
         </ScrollView>
