@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const Text = styled.Text`
-  color: #3c4560;
+  color: #fff;
   font-size: 16px;
-  font-weight: 600;
-  font-family: OpenSans;
+  font-family: Raleway-Regular;
 `;

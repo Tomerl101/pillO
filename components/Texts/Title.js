@@ -5,5 +5,5 @@ export const Title = styled.Text`
   font-size: 36px;
   font-weight: 600;
   margin-top: 20px;
-  font-family: OpenSans-Bold;
+  font-family: Raleway-Bold;
 `;

@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
-export const Root = styled.View`
-  flex-direction: column;
+export const ArticleCard = styled.View`
   background: #fff;
-  height: 230;
-  width:170px
+  height: 150;
+  width:340
   border-radius: 20px;
   margin-top: 20px;
   margin-left:20px;
-  box-shadow: 0 5px 13px rgba(0, 0, 0, 0.15);
-  padding: 30px;
+  box-shadow: 0 5px 13px rgba(0, 0, 0, 0.25);
   justify-content: space-between;
 `;

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const SubTitle = styled.Text`
-  color: #c1ede0;
-  font-size: 30px;
+  color: #fff;
+  font-size: 28px;
   font-weight: 600;
   margin-vertical: 15px;
-  font-family: OpenSans-Semi;
+  font-family: Raleway-SemiBold;
 `;
