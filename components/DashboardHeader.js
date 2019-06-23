@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 1, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 10,
-    elevation: 1
+    elevation: 3
   },
   colorView: {
     padding: 30,

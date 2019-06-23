@@ -4,7 +4,6 @@ import { LinearGradient } from 'expo';
 import { Row } from './Row';
 
 const Pill = ({ colors }) => {
-  const [, color] = colors;
   return (
     <Row style={styles.rowStyle}>
       <LinearGradient

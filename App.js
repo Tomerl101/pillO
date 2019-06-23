@@ -10,7 +10,7 @@ import { Font } from 'expo';
 import LoginScreen from './screens/LoginScreen';
 import DashboardScreen from './screens/DashboardScreen';
 import LoadingScreen from './screens/LoadingScreen';
-import PillsDetailsScreen from './screens/PillsDetailsScreen';
+import DetailsScreen from './screens/DetailsScreen';
 
 import * as firebase from 'firebase';
 import { firebaseConfig } from './config';
@@ -48,7 +48,7 @@ const AppSwitchNavigator = createSwitchNavigator({
   LoadingScreen,
   LoginScreen,
   DashboardScreen,
-  PillsDetailsScreen
+  DetailsScreen
 });
 
 const AppNavigator = createAppContainer(AppSwitchNavigator);

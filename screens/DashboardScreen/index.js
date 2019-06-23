@@ -4,7 +4,6 @@ import {
   ScrollView,
   TouchableOpacity,
   StyleSheet,
-  Button,
   Image
 } from 'react-native';
 import { Permissions, Notifications } from 'expo';
@@ -58,7 +57,7 @@ class DashboardScreen extends Component {
   }
 
   onCardPress = () => {
-    this.props.navigation.navigate('PillsDetailsScreen');
+    this.props.navigation.navigate('DetailsScreen');
   };
 
   render() {
@@ -66,7 +65,7 @@ class DashboardScreen extends Component {
       <View>
         <DashboardHeader />
         <RowTitle
-          text={'Sunday Jun 17'}
+          text="Sunday Jun 17"
           leftIcon={<EvilIcons name="calendar" size={42} color="#2c3e50" />}
           rightIcon={
             <TouchableOpacity>
@@ -84,19 +83,26 @@ class DashboardScreen extends Component {
             <Pill colors={['#FFB692', '#EA5455']} />
           </Card>
           <Card onPress={this.onCardPress}>
-            <Pill colors={['#FFEB71', '#F8D800']} />
-          </Card>
-          <Card onPress={this.onCardPress}>
             <Pill colors={['#AABCFF', '#0396FF']} />
           </Card>
           <Card onPress={this.onCardPress}>
             <Pill colors={['#8FFBB8', '#28C76F']} />
           </Card>
+          <Card onPress={this.onCardPress}>
+            <Pill colors={['#FFEB71', '#F8D800']} />
+          </Card>
         </ScrollView>
 
         <RowTitle
-          text={'Recommend Articels'}
-          leftIcon={<Ionicons name="md-paper" size={32} color="#2c3e50" />}
+          text="Recommend Articels"
+          leftIcon={
+            <Ionicons
+              name="md-paper"
+              size={32}
+              style={{ marginRight: 8 }}
+              color="#2c3e50"
+            />
+          }
         />
         <ScrollView
           horizontal

@@ -7,7 +7,7 @@ import { TouchableOpacity, View } from 'react-native';
 
 export const Card = props => (
   <TouchableOpacity onPress={props.onPress}>
-    <Root>
+    <Root style={{ elevation: 5 }}>
       {props.children}
       <View>
         <Title>Cocktail A</Title>
