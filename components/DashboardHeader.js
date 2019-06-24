@@ -51,9 +51,10 @@ const styles = StyleSheet.create({
     elevation: 3
   },
   colorView: {
-    padding: 30,
+    paddingTop: 60,
+    paddingHorizontal: 30,
     marginBottom: 20,
-    height: 240,
+    height: 265,
     borderBottomLeftRadius: 80
   },
   pillStyle: {
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     height: 150,
     position: 'absolute',
     right: 0,
-    marginTop: 45
+    top: 65
   },
   barTitleStyle: {
     flexDirection: 'row',

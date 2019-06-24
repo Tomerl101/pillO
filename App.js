@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, ActivityIndicator, Text, View } from 'react-native';
+import { StyleSheet, ActivityIndicator, View } from 'react-native';
 import {
   createAppContainer,
   createSwitchNavigator,
+  createStackNavigator,
   SafeAreaView
 } from 'react-navigation';
 import { Font } from 'expo';
@@ -35,21 +36,24 @@ export default class App extends React.Component {
 
   render() {
     return this.state.fontLoaded ? (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <AppNavigator />
-      </SafeAreaView>
+      </View>
     ) : (
       <ActivityIndicator size="large" color="#0000ff" />
     );
   }
 }
 
-const AppSwitchNavigator = createSwitchNavigator({
-  LoadingScreen,
-  LoginScreen,
-  DashboardScreen,
-  DetailsScreen
-});
+const AppSwitchNavigator = createStackNavigator(
+  {
+    LoadingScreen,
+    LoginScreen,
+    DashboardScreen,
+    DetailsScreen
+  },
+  { headerMode: 'none' }
+);
 
 const AppNavigator = createAppContainer(AppSwitchNavigator);
 

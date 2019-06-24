@@ -57,85 +57,87 @@ class DashboardScreen extends Component {
   }
 
   onCardPress = () => {
-    this.props.navigation.navigate('DetailsScreen');
+    this.props.navigation.push('DetailsScreen');
   };
 
   render() {
     return (
       <View>
         <DashboardHeader />
-        <RowTitle
-          text="Sunday Jun 17"
-          leftIcon={<EvilIcons name="calendar" size={42} color="#2c3e50" />}
-          rightIcon={
-            <TouchableOpacity>
-              <MaterialIcons name="filter-list" size={28} color="#2c3e50" />
-            </TouchableOpacity>
-          }
-        />
+        <ScrollView>
+          <RowTitle
+            text="Sunday Jun 17"
+            leftIcon={<EvilIcons name="calendar" size={42} color="#2c3e50" />}
+            rightIcon={
+              <TouchableOpacity>
+                <MaterialIcons name="filter-list" size={28} color="#2c3e50" />
+              </TouchableOpacity>
+            }
+          />
 
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.contentContainer}
-        >
-          <Card onPress={this.onCardPress}>
-            <Pill colors={['#FFB692', '#EA5455']} />
-          </Card>
-          <Card onPress={this.onCardPress}>
-            <Pill colors={['#AABCFF', '#0396FF']} />
-          </Card>
-          <Card onPress={this.onCardPress}>
-            <Pill colors={['#8FFBB8', '#28C76F']} />
-          </Card>
-          <Card onPress={this.onCardPress}>
-            <Pill colors={['#FFEB71', '#F8D800']} />
-          </Card>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.contentContainer}
+          >
+            <Card onPress={this.onCardPress}>
+              <Pill colors={['#FFB692', '#EA5455']} />
+            </Card>
+            <Card onPress={this.onCardPress}>
+              <Pill colors={['#AABCFF', '#0396FF']} />
+            </Card>
+            <Card onPress={this.onCardPress}>
+              <Pill colors={['#8FFBB8', '#28C76F']} />
+            </Card>
+            <Card onPress={this.onCardPress}>
+              <Pill colors={['#FFEB71', '#F8D800']} />
+            </Card>
+          </ScrollView>
+
+          <RowTitle
+            text="Recommend Articels"
+            leftIcon={
+              <Ionicons
+                name="md-paper"
+                size={32}
+                style={{ marginRight: 8 }}
+                color="#2c3e50"
+              />
+            }
+          />
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.contentContainer}
+          >
+            <ArticleCard>
+              <View style={{ width: '100%', height: 150 }}>
+                <Image
+                  style={{ width: '100%', height: '100%', borderRadius: 20 }}
+                  source={require('../../assets/images/article_1.jpg')}
+                />
+              </View>
+            </ArticleCard>
+
+            <ArticleCard>
+              <View style={{ width: '100%', height: 150 }}>
+                <Image
+                  style={{ width: '100%', height: '100%', borderRadius: 20 }}
+                  source={require('../../assets/images/article_3.jpg')}
+                />
+              </View>
+            </ArticleCard>
+            <ArticleCard style={{ marginBottom: 20 }}>
+              <View style={{ width: '100%', height: 150 }}>
+                <Image
+                  style={{ width: '100%', height: '100%', borderRadius: 20 }}
+                  source={require('../../assets/images/article_4.jpg')}
+                />
+              </View>
+            </ArticleCard>
+          </ScrollView>
+          {/* <Button title="Sign out" onPress={() => firebase.auth().signOut()} /> */}
         </ScrollView>
-
-        <RowTitle
-          text="Recommend Articels"
-          leftIcon={
-            <Ionicons
-              name="md-paper"
-              size={32}
-              style={{ marginRight: 8 }}
-              color="#2c3e50"
-            />
-          }
-        />
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.contentContainer}
-        >
-          <ArticleCard>
-            <View style={{ width: '100%', height: 150 }}>
-              <Image
-                style={{ width: '100%', height: '100%', borderRadius: 20 }}
-                source={require('../../assets/images/article_1.jpg')}
-              />
-            </View>
-          </ArticleCard>
-
-          <ArticleCard>
-            <View style={{ width: '100%', height: 150 }}>
-              <Image
-                style={{ width: '100%', height: '100%', borderRadius: 20 }}
-                source={require('../../assets/images/article_3.jpg')}
-              />
-            </View>
-          </ArticleCard>
-          <ArticleCard>
-            <View style={{ width: '100%', height: 150 }}>
-              <Image
-                style={{ width: '100%', height: '100%', borderRadius: 20 }}
-                source={require('../../assets/images/article_4.jpg')}
-              />
-            </View>
-          </ArticleCard>
-        </ScrollView>
-        {/* <Button title="Sign out" onPress={() => firebase.auth().signOut()} /> */}
       </View>
     );
   }

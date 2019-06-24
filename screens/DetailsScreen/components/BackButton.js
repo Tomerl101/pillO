@@ -14,7 +14,7 @@ class BackButton extends Component {
         style={styles.containerStyle}
         onPress={this.onBackPress}
       >
-        <Ionicons name="ios-arrow-back" size={32} color="#2c3e50" />
+        <Ionicons name="ios-arrow-back" size={34} color="#2c3e50" />
       </TouchableOpacity>
     );
   }
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     position: 'absolute',
-    top: 15,
+    top: 65,
     left: 25,
     justifyContent: 'center',
     alignItems: 'center'

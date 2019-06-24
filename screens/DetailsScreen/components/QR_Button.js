@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, StyleSheet, Button } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Permissions } from 'expo';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { SmallText } from '../../../components/Texts/SmallText';
+import { Modal, Portal, Text, Button, Provider } from 'react-native-paper';
 
 export default class QR_Button extends Component {
   state = {
@@ -33,12 +34,17 @@ export default class QR_Button extends Component {
       <View
         style={{
           height: 180,
-          margin: 20,
+          margin: 30,
           justifyContent: 'center',
           alignItems: 'center'
         }}
       >
-        {QRVisible ? (
+        {scanned ? (
+          <Image
+            style={{ width: 110, height: 110 }}
+            source={require('../../../assets/images/medal.png')}
+          />
+        ) : QRVisible ? (
           <TouchableOpacity onPress={this.onPress}>
             <MaterialCommunityIcons
               name="qrcode-scan"
@@ -65,7 +71,8 @@ export default class QR_Button extends Component {
     );
   }
   handleBarCodeScanned = ({ type, data }) => {
-    this.setState({ scanned: true });
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    //TODO: show medal only after closing the modal
+    this.setState({ scanned: true, QRVisible: false, isModalVisibal: true });
+    setTimeout(() => this.props.toggleModal(), 500);
   };
 }

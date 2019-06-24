@@ -7,16 +7,29 @@ import { Divider } from 'react-native-paper';
 import BackButton from './components/BackButton';
 import { List } from 'react-native-paper';
 import { MediumText } from '../../components/Texts/MediumText';
-
+import Modal from 'react-native-modal';
+import { Text } from '../../components/Texts/Text';
+import { Button } from '../../components/Button';
 export class DetailsScreen extends Component {
+  state = {
+    isModalVisible: false
+  };
+
+  toggleModal = () => {
+    this.setState(prevState => ({
+      isModalVisible: !prevState.isModalVisible
+    }));
+  };
+
   render() {
+    const { isModalVisible } = this.state;
     return (
       <View style={styles.containerStyle}>
         <BackButton />
-        <QR_Button />
+        <QR_Button toggleModal={this.toggleModal} />
         <Card>
           <DetailsTitle />
-          <Divider style={{ marginBottom: 15 }} />
+          <Divider style={{ marginBottom: 25 }} />
           <ScrollView>
             <List.Item
               title="First Item"
@@ -121,6 +134,38 @@ export class DetailsScreen extends Component {
             />
           </ScrollView>
         </Card>
+        <Modal
+          isVisible={isModalVisible}
+          onSwipeComplete={this.toggleModal}
+          swipeDirection="left"
+        >
+          <View
+            style={{
+              backgroundColor: 'white',
+              borderRadius: 8,
+              padding: 30,
+              borderColor: 'rgba(0, 0, 0, 0.1)'
+            }}
+          >
+            <MediumText
+              style={{
+                textAlign: 'center',
+                fontSize: 24,
+                fontFamily: 'Raleway-SemiBold'
+              }}
+            >
+              {`Cocktail A
+Was successfuly scanned`}
+            </MediumText>
+            <Image
+              style={{ width: '100%', height: 260 }}
+              source={require('../../assets/images/success.png')}
+            />
+            <Button onPress={this.toggleModal}>
+              <Text>GOT IT!</Text>
+            </Button>
+          </View>
+        </Modal>
       </View>
     );
   }
@@ -130,6 +175,7 @@ export default DetailsScreen;
 
 const styles = StyleSheet.create({
   containerStyle: {
+    paddingTop: 45,
     paddingHorizontal: 35,
     flex: 1
   }
