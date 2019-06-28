@@ -4,7 +4,7 @@ import { Permissions } from 'expo';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { SmallText } from '../../../components/Texts/SmallText';
-import { Modal, Portal, Text, Button, Provider } from 'react-native-paper';
+import { Button } from 'react-native-paper';
 
 export default class QR_Button extends Component {
   state = {
@@ -18,8 +18,6 @@ export default class QR_Button extends Component {
       status: cameraPermission,
       permissions
     } = await Permissions.askAsync(Permissions.CAMERA);
-    console.log('status->', cameraPermission);
-    console.log('permissions->', permissions);
     this.setState({ hasCameraPermission: cameraPermission === 'granted' });
   }
 
@@ -27,8 +25,19 @@ export default class QR_Button extends Component {
     this.setState({ QRVisible: false });
   };
 
+  handleBarCodeScanned = ({ type, data }) => {
+    try {
+      const jsonData = JSON.parse(data);
+      //TODO: show medal only after closing the modal
+      this.setState({ scanned: true, QRVisible: false });
+      setTimeout(() => this.props.onPressToggleModal(), 500);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   render() {
-    const { hasCameraPermission, scanned, QRVisible } = this.state;
+    const { scanned, QRVisible } = this.state;
     //TODO: add modal/ alert and ask for camera permission if not granted
     return (
       <View
@@ -70,9 +79,4 @@ export default class QR_Button extends Component {
       </View>
     );
   }
-  handleBarCodeScanned = ({ type, data }) => {
-    //TODO: show medal only after closing the modal
-    this.setState({ scanned: true, QRVisible: false, isModalVisibal: true });
-    setTimeout(() => this.props.toggleModal(), 500);
-  };
 }

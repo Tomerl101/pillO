@@ -1,110 +1,28 @@
 import React, { Component } from 'react';
-import {
-  View,
-  ScrollView,
-  TouchableOpacity,
-  StyleSheet,
-  Image
-} from 'react-native';
-import { Permissions, Notifications } from 'expo';
-import { Ionicons, EvilIcons, MaterialIcons } from '@expo/vector-icons';
+import { View, ScrollView, StyleSheet, Image } from 'react-native';
 import firebase from 'firebase';
-import { Card } from '../../components/Card';
-import Pill from '../../components/Pill';
-import DashboardHeader from '../../components/DashboardHeader';
+import { DashboardHeader } from './components/DashboardHeader';
 import { ArticleCard } from '../../components/ArticleCard';
-import RowTitle from './components/RowTitle';
+import { DateTitle } from './components/DateTitle';
+import { ArticlesTitle } from './components/ArticlesTitle';
+import { registerForPushNotificationsAsync } from '../../utils/registerForPushNotificationsAsync';
+import perscriptionMockData from '../../mock/medicine_perscription.json';
+import PerscriptionList from './components/PerscriptionList';
 
 class DashboardScreen extends Component {
-  registerForPushNotificationsAsync = async () => {
-    const { status: existingStatus } = await Permissions.getAsync(
-      Permissions.NOTIFICATIONS
-    );
-
-    let finalStatus = existingStatus;
-
-    // only ask if permissions have not already been determined, because
-    // iOS won't necessarily prompt the user a second time.
-    if (existingStatus !== 'granted') {
-      // Android remote notification permissions are granted during the app
-      // install, so this will only ask on iOS
-      const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
-      finalStatus = status;
-    }
-
-    // Stop here if the user did not grant permissions
-    if (finalStatus !== 'granted') {
-      return;
-    }
-
-    try {
-      // Get the token that uniquely identifies this device
-      let token = await Notifications.getExpoPushTokenAsync();
-
-      // POST the token to your backend server from where you can retrieve it to send push notifications.
-      firebase
-        .database()
-        .ref('users/' + this.currentUser.uid + '/push_token')
-        .set(token);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   async componentDidMount() {
     this.currentUser = await firebase.auth().currentUser;
-    await this.registerForPushNotificationsAsync();
+    await registerForPushNotificationsAsync(this.currentUser);
   }
-
-  onCardPress = () => {
-    this.props.navigation.push('DetailsScreen');
-  };
 
   render() {
     return (
       <View>
         <DashboardHeader />
         <ScrollView>
-          <RowTitle
-            text="Sunday Jun 17"
-            leftIcon={<EvilIcons name="calendar" size={42} color="#2c3e50" />}
-            rightIcon={
-              <TouchableOpacity>
-                <MaterialIcons name="filter-list" size={28} color="#2c3e50" />
-              </TouchableOpacity>
-            }
-          />
-
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.contentContainer}
-          >
-            <Card onPress={this.onCardPress}>
-              <Pill colors={['#FFB692', '#EA5455']} />
-            </Card>
-            <Card onPress={this.onCardPress}>
-              <Pill colors={['#AABCFF', '#0396FF']} />
-            </Card>
-            <Card onPress={this.onCardPress}>
-              <Pill colors={['#8FFBB8', '#28C76F']} />
-            </Card>
-            <Card onPress={this.onCardPress}>
-              <Pill colors={['#FFEB71', '#F8D800']} />
-            </Card>
-          </ScrollView>
-
-          <RowTitle
-            text="Recommend Articels"
-            leftIcon={
-              <Ionicons
-                name="md-paper"
-                size={32}
-                style={{ marginRight: 8 }}
-                color="#2c3e50"
-              />
-            }
-          />
+          <DateTitle />
+          <PerscriptionList data={perscriptionMockData} />
+          <ArticlesTitle />
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}

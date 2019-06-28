@@ -7,3 +7,10 @@ export const firebaseConfig = {
   messagingSenderId: '770112248372',
   appId: '1:770112248372:web:ba1ec0d9fddcca02'
 };
+
+export const config = {
+  androidClientId:
+    '770112248372-ipqcc31oq7ecpriqi54imb0prs4etp46.apps.googleusercontent.com',
+  iosClientId:
+    '770112248372-tk2406rfnlk5dm33un57h92eevugpk1m.apps.googleusercontent.com'
+};

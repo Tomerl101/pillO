@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Row } from '../../../components/Row';
-import Pill from '../../../components/Pill';
+import { Pill } from '../../../components/Pill';
 import { Title } from '../../../components/Texts/Title';
 import { MediumText } from '../../../components/Texts/MediumText';
 

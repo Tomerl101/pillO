@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet, Button } from 'react-native';
 import firebase from 'firebase';
+import { config } from '../config';
 
 class LoginScreen extends Component {
   isUserEqual = (googleUser, firebaseUser) => {
@@ -65,15 +66,6 @@ class LoginScreen extends Component {
             })
             .catch(function(error) {
               console.log(error.message);
-
-              // Handle Errors here.
-              var errorCode = error.code;
-              var errorMessage = error.message;
-              // The email of the user's account used.
-              var email = error.email;
-              // The firebase.auth.AuthCredential type that was used.
-              var credential = error.credential;
-              // ...
             });
         } else {
           console.log('User already signed-in Firebase.');
@@ -81,14 +73,13 @@ class LoginScreen extends Component {
       }.bind(this)
     );
   };
+
   signInWithGoogleAsync = async () => {
     try {
       const result = await Expo.Google.logInAsync({
-        androidClientId:
-          '770112248372-ipqcc31oq7ecpriqi54imb0prs4etp46.apps.googleusercontent.com',
+        androidClientId: config.androidClientId,
         behavior: 'web',
-        iosClientId:
-          '770112248372-tk2406rfnlk5dm33un57h92eevugpk1m.apps.googleusercontent.com', //enter ios client id
+        iosClientId: config.iosClientId, //enter ios client id
         scopes: ['profile', 'email']
       });
 
@@ -102,6 +93,7 @@ class LoginScreen extends Component {
       return { error: true };
     }
   };
+
   render() {
     return (
       <View style={styles.container}>

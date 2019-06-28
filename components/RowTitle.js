@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Row } from '../../../components/Row';
-import { SubTitle } from '../../../components/Texts/SubTitle';
+import { Row } from './Row';
+import { SubTitle } from './Texts/SubTitle';
 
-const RowTitle = ({ text, leftIcon, rightIcon }) => {
+export const RowTitle = ({ text, leftIcon, rightIcon }) => {
   return (
     <Row style={styles.rowStyle}>
       <Row style={styles.center}>
@@ -14,8 +14,6 @@ const RowTitle = ({ text, leftIcon, rightIcon }) => {
     </Row>
   );
 };
-
-export default RowTitle;
 
 const styles = StyleSheet.create({
   rowStyle: {

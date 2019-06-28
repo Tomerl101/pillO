@@ -1,0 +1,34 @@
+[
+  {
+    "status": true,
+    "name": "Cocktail A",
+    "desc": "After Breakfast",
+    "color": "RED",
+    "timeToTake": "1561735420896",
+    "endData": null
+  },
+  {
+    "status": false,
+    "name": "Cocktail B",
+    "desc": "With food",
+    "color": "BLUE",
+    "timeToTake": "1561735420896",
+    "endData": null
+  },
+  {
+    "status": false,
+    "name": "Cocktail C",
+    "desc": "none",
+    "color": "GREEN",
+    "timeToTake": "1561735420896",
+    "endData": null
+  },
+  {
+    "status": false,
+    "name": "Cocktail D",
+    "desc": "With orange juice",
+    "color": "YELLOW",
+    "timeToTake": "1561735420896",
+    "endData": null
+  }
+]

@@ -7,9 +7,7 @@ import { Divider } from 'react-native-paper';
 import BackButton from './components/BackButton';
 import { List } from 'react-native-paper';
 import { MediumText } from '../../components/Texts/MediumText';
-import Modal from 'react-native-modal';
-import { Text } from '../../components/Texts/Text';
-import { Button } from '../../components/Button';
+import { SuccessModal } from './components/SuccessModal';
 export class DetailsScreen extends Component {
   state = {
     isModalVisible: false
@@ -26,7 +24,7 @@ export class DetailsScreen extends Component {
     return (
       <View style={styles.containerStyle}>
         <BackButton />
-        <QR_Button toggleModal={this.toggleModal} />
+        <QR_Button onPressToggleModal={this.toggleModal} />
         <Card>
           <DetailsTitle />
           <Divider style={{ marginBottom: 25 }} />
@@ -34,7 +32,7 @@ export class DetailsScreen extends Component {
             <List.Item
               title="First Item"
               description="Item description"
-              left={props => (
+              left={() => (
                 <Image
                   style={{
                     width: 55,
@@ -134,38 +132,10 @@ export class DetailsScreen extends Component {
             />
           </ScrollView>
         </Card>
-        <Modal
+        <SuccessModal
+          onPressToggleModal={this.toggleModal}
           isVisible={isModalVisible}
-          onSwipeComplete={this.toggleModal}
-          swipeDirection="left"
-        >
-          <View
-            style={{
-              backgroundColor: 'white',
-              borderRadius: 8,
-              padding: 30,
-              borderColor: 'rgba(0, 0, 0, 0.1)'
-            }}
-          >
-            <MediumText
-              style={{
-                textAlign: 'center',
-                fontSize: 24,
-                fontFamily: 'Raleway-SemiBold'
-              }}
-            >
-              {`Cocktail A
-Was successfuly scanned`}
-            </MediumText>
-            <Image
-              style={{ width: '100%', height: 260 }}
-              source={require('../../assets/images/success.png')}
-            />
-            <Button onPress={this.toggleModal}>
-              <Text>GOT IT!</Text>
-            </Button>
-          </View>
-        </Modal>
+        />
       </View>
     );
   }

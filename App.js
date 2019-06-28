@@ -1,26 +1,17 @@
 import React from 'react';
 import { StyleSheet, ActivityIndicator, View } from 'react-native';
-import {
-  createAppContainer,
-  createSwitchNavigator,
-  createStackNavigator,
-  SafeAreaView
-} from 'react-navigation';
-import { Font } from 'expo';
-
-import LoginScreen from './screens/LoginScreen';
-import DashboardScreen from './screens/DashboardScreen';
-import LoadingScreen from './screens/LoadingScreen';
-import DetailsScreen from './screens/DetailsScreen';
-
 import * as firebase from 'firebase';
+import { Font } from 'expo';
 import { firebaseConfig } from './config';
+import { AppNavigator } from './navigation';
+
 firebase.initializeApp(firebaseConfig);
 
 export default class App extends React.Component {
   state = {
     fontLoaded: false
   };
+
   async componentDidMount() {
     await Font.loadAsync({
       'OpenSans-Bold': require('./assets/fonts/OpenSans-Bold.ttf'),
@@ -44,18 +35,6 @@ export default class App extends React.Component {
     );
   }
 }
-
-const AppSwitchNavigator = createStackNavigator(
-  {
-    LoadingScreen,
-    LoginScreen,
-    DashboardScreen,
-    DetailsScreen
-  },
-  { headerMode: 'none' }
-);
-
-const AppNavigator = createAppContainer(AppSwitchNavigator);
 
 const styles = StyleSheet.create({
   container: {

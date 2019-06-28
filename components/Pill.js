@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo';
 import { Row } from './Row';
 
-const Pill = ({ colors }) => {
+export const Pill = ({ colors }) => {
   return (
     <Row style={styles.rowStyle}>
       <LinearGradient
@@ -19,8 +19,6 @@ const Pill = ({ colors }) => {
     </Row>
   );
 };
-
-export default Pill;
 
 const styles = StyleSheet.create({
   rowStyle: {
