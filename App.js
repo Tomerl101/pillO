@@ -4,6 +4,8 @@ import * as firebase from 'firebase';
 import { Font } from 'expo';
 import { firebaseConfig } from './config';
 import { AppNavigator } from './navigation';
+import { Provider } from 'mobx-react';
+import userStore from './store/userStore';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -27,9 +29,11 @@ export default class App extends React.Component {
 
   render() {
     return this.state.fontLoaded ? (
-      <View style={styles.container}>
-        <AppNavigator />
-      </View>
+      <Provider store={userStore}>
+        <View style={styles.container}>
+          <AppNavigator />
+        </View>
+      </Provider>
     ) : (
       <ActivityIndicator size="large" color="#0000ff" />
     );

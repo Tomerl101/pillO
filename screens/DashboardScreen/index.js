@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet, Image } from 'react-native';
+import {
+  ActivityIndicator,
+  View,
+  ScrollView,
+  StyleSheet,
+  Image
+} from 'react-native';
+import { inject, observer } from 'mobx-react';
 import firebase from 'firebase';
 import { DashboardHeader } from './components/DashboardHeader';
 import { ArticleCard } from '../../components/ArticleCard';
@@ -9,14 +16,23 @@ import { registerForPushNotificationsAsync } from '../../utils/registerForPushNo
 import perscriptionMockData from '../../mock/medicine_perscription.json';
 import PerscriptionList from './components/PerscriptionList';
 
+@inject('store')
+@observer
 class DashboardScreen extends Component {
   async componentDidMount() {
-    this.currentUser = await firebase.auth().currentUser;
+    const { store } = this.props;
+    store.currentUser = await firebase
+      .auth()
+      .currentUser.displayName.split(' ')[0];
     await registerForPushNotificationsAsync(this.currentUser);
   }
 
   render() {
-    return (
+    const { isLoading } = this.props.store;
+
+    return isLoading ? (
+      <ActivityIndicator size="large" color="#0000ff" />
+    ) : (
       <View>
         <DashboardHeader />
         <ScrollView>

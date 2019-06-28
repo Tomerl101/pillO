@@ -4,12 +4,12 @@ import { withNavigation } from 'react-navigation';
 import { Card } from '../../../components/Card';
 
 class PerscriptionList extends Component {
-  onCardPress = () => {
-    this.props.navigation.push('DetailsScreen');
+  onCardPress = item => {
+    this.props.navigation.push('DetailsScreen', { item });
   };
 
   _renderItem = ({ item }) => {
-    return <Card onPress={this.onCardPress} prescription={item} />;
+    return <Card onPress={() => this.onCardPress(item)} prescription={item} />;
   };
 
   render() {
@@ -17,7 +17,7 @@ class PerscriptionList extends Component {
     return (
       <FlatList
         data={data}
-        keyExtractor={item => item.name}
+        keyExtractor={item => `${item.id}`}
         renderItem={this._renderItem}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.contentContainer}

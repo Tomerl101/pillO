@@ -20,13 +20,15 @@ export class DetailsScreen extends Component {
   };
 
   render() {
+    const { navigation } = this.props;
+    const item = navigation.getParam('item');
     const { isModalVisible } = this.state;
     return (
       <View style={styles.containerStyle}>
         <BackButton />
         <QR_Button onPressToggleModal={this.toggleModal} />
         <Card>
-          <DetailsTitle />
+          <DetailsTitle title={item.name} color={item.color} />
           <Divider style={{ marginBottom: 25 }} />
           <ScrollView>
             <List.Item

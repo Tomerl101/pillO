@@ -7,11 +7,12 @@ import { Pill } from '../Pill';
 import { TouchableOpacity, View } from 'react-native';
 import AlarmIcon from '../AlarmIcon';
 import { COLORS } from '../../constants/colors';
+import moment from 'moment';
 
 export const Card = ({ onPress, prescription }) => (
   <TouchableOpacity onPress={onPress}>
     <Root style={{ elevation: 5 }}>
-      {prescription.status && <AlarmIcon />}
+      {isDatePassed(prescription.timeToTake) && <AlarmIcon />}
       <Pill colors={COLORS[prescription.color]} />
       <View>
         <Title>{prescription.name}</Title>
@@ -21,3 +22,5 @@ export const Card = ({ onPress, prescription }) => (
     </Root>
   </TouchableOpacity>
 );
+
+const isDatePassed = date => moment().isAfter(moment.unix(date));
