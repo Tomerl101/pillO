@@ -5,6 +5,7 @@ class UserStore {
   @observable currentUser = {};
   @observable isLoading = false;
   @observable perscriptionsList = [];
+  @observable isModalVisible = false;
 
   constructor() {
     this.loadPerscriptions();
@@ -23,6 +24,10 @@ class UserStore {
     this.isLoading = true;
     this.perscriptionsList = perscriptionsMockData;
     this.isLoading = false;
+  }
+
+  @action setModalVisible(visible) {
+    this.isModalVisible = visible;
   }
 }
 export default new UserStore();
