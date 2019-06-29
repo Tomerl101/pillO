@@ -14,9 +14,11 @@
     "moment": "^2.24.0",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-elements": "^1.1.0",
     "react-native-modal": "^11.0.2",
     "react-native-paper": "^2.16.0",
     "react-native-progress": "^3.6.0",
+    "react-native-web-swiper": "^1.15.1",
     "react-navigation": "^3.0.9",
     "styled-components": "^4.2.1"
   },
