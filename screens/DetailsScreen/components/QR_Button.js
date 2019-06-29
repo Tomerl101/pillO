@@ -27,10 +27,10 @@ export default class QR_Button extends Component {
 
   handleBarCodeScanned = ({ type, data }) => {
     try {
-      const jsonData = JSON.parse(data);
+      const QR_payload = JSON.parse(data);
       //TODO: show medal only after closing the modal
       this.setState({ scanned: true, QRVisible: false });
-      setTimeout(() => this.props.onPressToggleModal(), 500);
+      setTimeout(() => this.props.handleQRScan(QR_payload), 500);
     } catch (err) {
       console.log(err);
     }

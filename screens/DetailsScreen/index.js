@@ -19,6 +19,15 @@ export class DetailsScreen extends Component {
     }));
   };
 
+  validateQR = QR_payload => {
+    const item = this.props.navigation.getParam('item');
+    if (item.name == QR_payload.name) {
+      this.toggleModal();
+    } else {
+      alert('worng QR!');
+    }
+  };
+
   render() {
     const { navigation } = this.props;
     const item = navigation.getParam('item');
@@ -26,7 +35,7 @@ export class DetailsScreen extends Component {
     return (
       <View style={styles.containerStyle}>
         <BackButton />
-        <QR_Button onPressToggleModal={this.toggleModal} />
+        <QR_Button handleQRScan={this.validateQR} />
         <Card>
           <DetailsTitle title={item.name} color={item.color} />
           <Divider style={{ marginBottom: 25 }} />
