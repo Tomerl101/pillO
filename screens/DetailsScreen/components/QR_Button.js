@@ -35,11 +35,16 @@ export default class QR_Button extends Component {
 
   handleBarCodeScanned = ({ type, data }) => {
     try {
+      const { store } = this.props;
+      const { perscriptionsList } = store;
+
       Vibration.vibrate(500);
       this.setState({ QRVisible: true });
       const QR_payload = JSON.parse(data);
       isValidQR = this.props.validateQR(QR_payload);
+
       if (isValidQR) {
+        store.setTaken(QR_payload.id);
         this.props.store.setModalVisible(true);
         return;
       }

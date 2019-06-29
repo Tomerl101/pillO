@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "status": false,
+    "taken": true,
     "name": "Cocktail A",
     "desc": "After Breakfast",
     "color": "RED",
@@ -10,7 +10,7 @@
   },
   {
     "id": 1,
-    "status": false,
+    "taken": false,
     "name": "Cocktail B",
     "desc": "With food",
     "color": "BLUE",
@@ -19,7 +19,7 @@
   },
   {
     "id": 2,
-    "status": false,
+    "taken": false,
     "name": "Cocktail C",
     "desc": "none",
     "color": "GREEN",
@@ -28,7 +28,7 @@
   },
   {
     "id": 3,
-    "status": false,
+    "taken": false,
     "name": "Cocktail D",
     "desc": "With orange juice",
     "color": "YELLOW",

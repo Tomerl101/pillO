@@ -9,6 +9,7 @@ import { SuccessModal } from './components/SuccessModal';
 import DetailsTitle from './components/DetailsTitle';
 import QR_Button from './components/QR_Button';
 import BackButton from './components/BackButton';
+
 @inject('store')
 @observer
 export class DetailsScreen extends Component {
@@ -24,7 +25,9 @@ export class DetailsScreen extends Component {
 
   validateQR = QR_payload => {
     const item = this.props.navigation.getParam('item');
-    return item.name == QR_payload.name ? true : false;
+    return item.name == QR_payload.name && item.id == QR_payload.id
+      ? true
+      : false;
   };
 
   render() {
