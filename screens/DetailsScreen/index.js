@@ -1,41 +1,41 @@
 import React, { Component } from 'react';
 import { StyleSheet, ScrollView, View, Image } from 'react-native';
-import QR_Button from './components/QR_Button';
-import DetailsTitle from './components/DetailsTitle';
+import { inject, observer } from 'mobx-react';
 import { Card } from './components/Card';
 import { Divider } from 'react-native-paper';
-import BackButton from './components/BackButton';
 import { List } from 'react-native-paper';
 import { MediumText } from '../../components/Texts/MediumText';
 import { SuccessModal } from './components/SuccessModal';
+import DetailsTitle from './components/DetailsTitle';
+import QR_Button from './components/QR_Button';
+import BackButton from './components/BackButton';
+@inject('store')
+@observer
 export class DetailsScreen extends Component {
   state = {
-    isModalVisible: false
+    isModalVisible: false,
+    scanned: false
   };
 
-  toggleModal = () => {
-    this.setState(prevState => ({
-      isModalVisible: !prevState.isModalVisible
-    }));
+  onModalOkPressed = () => {
+    this.props.store.setModalVisible(false);
+    this.setState({ scanned: true });
   };
 
   validateQR = QR_payload => {
     const item = this.props.navigation.getParam('item');
-    if (item.name == QR_payload.name) {
-      this.toggleModal();
-    } else {
-      alert('worng QR!');
-    }
+    return item.name == QR_payload.name ? true : false;
   };
 
   render() {
+    const { scanned } = this.state;
     const { navigation } = this.props;
     const item = navigation.getParam('item');
-    const { isModalVisible } = this.state;
+
     return (
       <View style={styles.containerStyle}>
         <BackButton />
-        <QR_Button handleQRScan={this.validateQR} />
+        <QR_Button scanned={scanned} validateQR={this.validateQR} />
         <Card>
           <DetailsTitle title={item.name} color={item.color} />
           <Divider style={{ marginBottom: 25 }} />
@@ -143,10 +143,7 @@ export class DetailsScreen extends Component {
             />
           </ScrollView>
         </Card>
-        <SuccessModal
-          onPressToggleModal={this.toggleModal}
-          isVisible={isModalVisible}
-        />
+        <SuccessModal onModalPress={this.onModalOkPressed} />
       </View>
     );
   }

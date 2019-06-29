@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import {
+  Vibration,
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  Image
+} from 'react-native';
 import { Permissions } from 'expo';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { SmallText } from '../../../components/Texts/SmallText';
 import { Button } from 'react-native-paper';
+import { inject } from 'mobx-react';
 
+@inject('store')
 export default class QR_Button extends Component {
   state = {
     hasCameraPermission: null,
@@ -27,18 +35,23 @@ export default class QR_Button extends Component {
 
   handleBarCodeScanned = ({ type, data }) => {
     try {
+      Vibration.vibrate(500);
+      this.setState({ QRVisible: true });
       const QR_payload = JSON.parse(data);
-      //TODO: show medal only after closing the modal
-      this.setState({ scanned: true, QRVisible: false });
-      setTimeout(() => this.props.handleQRScan(QR_payload), 500);
+      isValidQR = this.props.validateQR(QR_payload);
+      if (isValidQR) {
+        this.props.store.setModalVisible(true);
+        return;
+      }
+      alert('QR not match for the perscription');
     } catch (err) {
       console.log(err);
     }
   };
 
   render() {
-    const { scanned, QRVisible } = this.state;
-    //TODO: add modal/ alert and ask for camera permission if not granted
+    const { QRVisible } = this.state;
+    const { scanned } = this.props;
     return (
       <View
         style={{
