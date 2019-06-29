@@ -11,7 +11,8 @@ class UserStore {
   }
 
   @computed get takenPerscriptionsCount() {
-    return this.perscriptionsList.filter(todo => todo.taken === true).length;
+    return 2;
+    // return this.perscriptionsList.filter(todo => todo.taken === true).length;
   }
 
   @computed get totalPerscriptionCount() {
