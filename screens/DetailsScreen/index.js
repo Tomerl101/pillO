@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet, ScrollView, View, Image } from 'react-native';
 import { inject, observer } from 'mobx-react';
-import { Card } from './components/Card';
 import { Divider } from 'react-native-paper';
 import { List } from 'react-native-paper';
-import { MediumText } from '../../components/Texts/MediumText';
-import { SuccessModal } from './components/SuccessModal';
+import MediumText  from '../../components/Texts/MediumText';
+import Card from './components/Card';
+import SuccessModal from './components/SuccessModal';
 import DetailsTitle from './components/DetailsTitle';
 import QR_Button from './components/QR_Button';
 import BackButton from './components/BackButton';
@@ -15,7 +15,7 @@ import BackButton from './components/BackButton';
 export class DetailsScreen extends Component {
   state = {
     isModalVisible: false,
-    scanned: false
+    scanned: this.props.navigation.getParam('item').taken
   };
 
   onModalOkPressed = () => {
@@ -40,7 +40,10 @@ export class DetailsScreen extends Component {
         <BackButton />
         <QR_Button scanned={scanned} validateQR={this.validateQR} />
         <Card>
-          <DetailsTitle title={item.name} color={item.color} />
+          <DetailsTitle
+            title={item.name}
+            color={item.taken ? 'GRAY' : item.color}
+          />
           <Divider style={{ marginBottom: 25 }} />
           <ScrollView>
             <List.Item

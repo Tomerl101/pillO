@@ -1,9 +1,11 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native'
 
-export const Title = styled.Text`
+const Title = styled.Text`
   color: #ffffff;
   font-size: 36px;
   font-weight: 600;
   margin-top: 20px;
   font-family: Raleway-Bold;
-`;
+`
+
+export default Title

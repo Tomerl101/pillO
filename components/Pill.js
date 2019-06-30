@@ -1,9 +1,9 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { LinearGradient } from 'expo';
-import { Row } from './Row';
+import React from 'react'
+import { StyleSheet } from 'react-native'
+import { LinearGradient } from 'expo'
+import Row from './Row'
 
-export const Pill = ({ colors }) => {
+const Pill = ({ colors }) => {
   return (
     <Row style={styles.rowStyle}>
       <LinearGradient
@@ -17,9 +17,10 @@ export const Pill = ({ colors }) => {
         style={[styles.pillStyle, styles.smallPillStyle]}
       />
     </Row>
-  );
-};
+  )
+}
 
+export default Pill
 const styles = StyleSheet.create({
   rowStyle: {
     shadowColor: '#000',
@@ -45,4 +46,4 @@ const styles = StyleSheet.create({
     marginRight: -8,
     transform: [{ rotate: '-35deg' }]
   }
-});
+})

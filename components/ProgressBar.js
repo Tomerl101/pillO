@@ -1,9 +1,9 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Bar } from 'react-native-progress';
-import { Text } from './Texts/Text';
+import React from 'react'
+import { View, StyleSheet } from 'react-native'
+import { Bar } from 'react-native-progress'
+import Text from './Texts/Text'
 
-export const ProgressBar = ({ taken, total }) => {
+const ProgressBar = ({ taken, total }) => {
   return (
     <View>
       <View style={styles.barTextContainerStyle}>
@@ -22,8 +22,10 @@ export const ProgressBar = ({ taken, total }) => {
         />
       </View>
     </View>
-  );
-};
+  )
+}
+
+export default ProgressBar
 
 const styles = StyleSheet.create({
   barTextContainerStyle: {
@@ -42,4 +44,4 @@ const styles = StyleSheet.create({
   leftMargin: {
     marginLeft: 42
   }
-});
+})

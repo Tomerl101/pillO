@@ -1,26 +1,23 @@
-import React, { Component } from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { withNavigation } from 'react-navigation';
+import React, { Component } from 'react'
+import { StyleSheet, TouchableOpacity } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
+import { withNavigation } from 'react-navigation'
 
 class BackButton extends Component {
   onBackPress = () => {
-    this.props.navigation.navigate('DashboardScreen');
-  };
+    this.props.navigation.navigate('DashboardScreen')
+  }
 
   render() {
     return (
-      <TouchableOpacity
-        style={styles.containerStyle}
-        onPress={this.onBackPress}
-      >
+      <TouchableOpacity style={styles.containerStyle} onPress={this.onBackPress}>
         <Ionicons name="ios-arrow-back" size={34} color="#2c3e50" />
       </TouchableOpacity>
-    );
+    )
   }
 }
 
-export default withNavigation(BackButton);
+export default withNavigation(BackButton)
 
 const styles = StyleSheet.create({
   containerStyle: {
@@ -32,4 +29,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   }
-});
+})

@@ -1,21 +1,21 @@
-import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
-import { inject, observer } from 'mobx-react';
-import Modal from 'react-native-modal';
-import { Text } from '../../../components/Texts/Text';
-import { Button } from '../../../components/Button';
-import { MediumText } from '../../../components/Texts/MediumText';
+import React from 'react'
+import { StyleSheet, View, Image } from 'react-native'
+import { inject, observer } from 'mobx-react'
+import Modal from 'react-native-modal'
+import Text from '../../../components/Texts/Text'
+import Button from '../../../components/Button'
+import MediumText from '../../../components/Texts/MediumText'
 
-export const SuccessModal = inject('store')(
+const SuccessModal = inject('store')(
   observer(({ store, onModalPress }) => {
-    const { isModalVisible } = store;
+    const { isModalVisible } = store
 
     return (
       <Modal isVisible={isModalVisible}>
         <View style={styles.modalBodyStyle}>
           <MediumText style={styles.headerText}>
-            {`Cocktail A
-  Was successfuly scanned`}
+            {`Cocktail Was
+            Successfuly scanned`}
           </MediumText>
           <Image
             style={styles.successImageStyle}
@@ -26,9 +26,11 @@ export const SuccessModal = inject('store')(
           </Button>
         </View>
       </Modal>
-    );
+    )
   })
-);
+)
+
+export default SuccessModal
 
 const styles = StyleSheet.create({
   modalBodyStyle: {
@@ -46,4 +48,4 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 260
   }
-});
+})
