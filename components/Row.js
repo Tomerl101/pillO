@@ -1,6 +1,8 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native'
 
-export const Row = styled.View`
+const Row = styled.View`
   flex-direction: row;
   align-items: flex-end;
-`;
+`
+
+export default Row

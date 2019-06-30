@@ -4,7 +4,7 @@
     "taken": true,
     "name": "Cocktail A",
     "desc": "After Breakfast",
-    "color": "RED",
+    "color": "YELLOW",
     "timeToTake": 1561760017,
     "endData": null
   },
@@ -13,8 +13,8 @@
     "taken": false,
     "name": "Cocktail B",
     "desc": "With food",
-    "color": "BLUE",
-    "timeToTake": 1561846462,
+    "color": "GREEN",
+    "timeToTake": 1561846002,
     "endData": null
   },
   {
@@ -22,7 +22,7 @@
     "taken": false,
     "name": "Cocktail C",
     "desc": "none",
-    "color": "GREEN",
+    "color": "RED",
     "timeToTake": 1561846462,
     "endData": null
   },
@@ -30,8 +30,8 @@
     "id": 3,
     "taken": false,
     "name": "Cocktail D",
-    "desc": "With orange juice",
-    "color": "YELLOW",
+    "desc": "With coffe",
+    "color": "BLUE",
     "timeToTake": 1561846462,
     "endData": null
   }

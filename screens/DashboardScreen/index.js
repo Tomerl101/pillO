@@ -1,35 +1,25 @@
-import React, { Component } from 'react';
-import {
-  ActivityIndicator,
-  View,
-  ScrollView,
-  StyleSheet,
-  Image,
-  Button,
-  ListView
-} from 'react-native';
-import { inject, observer } from 'mobx-react';
-import firebase from 'firebase';
-import { DashboardHeader } from './components/DashboardHeader';
-import { ArticleCard } from '../../components/ArticleCard';
-import { DateTitle } from './components/DateTitle';
-import { ArticlesTitle } from './components/ArticlesTitle';
-import { registerForPushNotificationsAsync } from '../../utils/registerForPushNotificationsAsync';
-import PerscriptionList from './components/PerscriptionList';
+import React, { Component } from 'react'
+import { ActivityIndicator, View, ScrollView, StyleSheet, Image } from 'react-native'
+import { inject, observer } from 'mobx-react'
+import firebase from 'firebase'
+import DashboardHeader from './components/DashboardHeader'
+import ArticleCard from '../../components/ArticleCard'
+import DateTitle from './components/DateTitle'
+import ArticlesTitle from './components/ArticlesTitle'
+import registerForPushNotificationsAsync from '../../utils/registerForPushNotificationsAsync'
+import PerscriptionList from './components/PerscriptionList'
 
 @inject('store')
 @observer
 class DashboardScreen extends Component {
   async componentDidMount() {
-    const { store } = this.props;
-    store.currentUser = await firebase
-      .auth()
-      .currentUser.displayName.split(' ')[0];
-    await registerForPushNotificationsAsync(this.currentUser);
+    const { store } = this.props
+    store.currentUser = await firebase.auth().currentUser.displayName.split(' ')[0]
+    await registerForPushNotificationsAsync(this.currentUser)
   }
 
   render() {
-    const { filteredPerscription, isLoading } = this.props.store;
+    const { filteredPerscription, isLoading } = this.props.store
 
     return isLoading ? (
       <ActivityIndicator size="large" color="#0000ff" />
@@ -74,11 +64,11 @@ class DashboardScreen extends Component {
           </ScrollView>
         </ScrollView>
       </View>
-    );
+    )
   }
 }
-export default DashboardScreen;
+export default DashboardScreen
 
 const styles = StyleSheet.create({
   contentContainer: { marginBottom: 28 }
-});
+})

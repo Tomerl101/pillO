@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native'
 
-export const Root = styled.View`
+const Root = styled.View`
   flex-direction: column;
   background: #fff;
   height: 230;
@@ -11,4 +11,5 @@ export const Root = styled.View`
   box-shadow: 0 5px 13px rgba(0, 0, 0, 0.15);
   padding: 30px;
   justify-content: space-between;
-`;
+`
+export default Root

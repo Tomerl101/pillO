@@ -1,7 +1,9 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native'
 
-export const Text = styled.Text`
+const Text = styled.Text`
   color: #fff;
   font-size: 16px;
   font-family: Raleway-Regular;
-`;
+`
+
+export default Text

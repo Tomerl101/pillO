@@ -1,23 +1,23 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { DangerZone } from 'expo';
-const { Lottie } = DangerZone;
+import React from 'react'
+import { StyleSheet } from 'react-native'
+import { DangerZone } from 'expo'
+const { Lottie } = DangerZone
 
 export default class AlarmIcon extends React.Component {
   componentDidMount() {
-    this.animation.play();
+    this.animation.play()
   }
 
   render() {
     return (
       <Lottie
         ref={animation => {
-          this.animation = animation;
+          this.animation = animation
         }}
         style={styles.IconStyle}
         source={require('../assets/Notification_Red.json')}
       />
-    );
+    )
   }
 }
 
@@ -28,4 +28,4 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -65
   }
-});
+})

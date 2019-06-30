@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot renders the loading screen 1`] = `
+<ActivityIndicator
+  animating={true}
+  color="#0000ff"
+  hidesWhenStopped={true}
+  size="large"
+/>
+`;

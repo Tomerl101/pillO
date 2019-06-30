@@ -1,21 +1,21 @@
-import React from 'react';
-import { TouchableOpacity } from 'react-native';
-import { inject, observer } from 'mobx-react';
-import { EvilIcons, MaterialIcons } from '@expo/vector-icons';
-import { RowTitle } from '../../../components/RowTitle';
-import { TODO_FILTER } from '../../../constants/todoFilter';
-import moment from 'moment';
+import React from 'react'
+import { TouchableOpacity } from 'react-native'
+import { inject, observer } from 'mobx-react'
+import { EvilIcons, MaterialIcons } from '@expo/vector-icons'
+import RowTitle from '../../../components/RowTitle'
+import TODO_FILTER from '../../../constants/todoFilter'
+import moment from 'moment'
 
-export const DateTitle = inject('store')(
+const DateTitle = inject('store')(
   observer(({ store }) => {
-    let i = 0;
-    const filters = Object.keys(TODO_FILTER);
-    const dateStr = moment().format('dddd MMM D');
+    let i = 1
+    const filters = Object.keys(TODO_FILTER)
+    const dateStr = moment().format('dddd MMM D')
 
     const cycleFilterMode = () => {
-      i++;
-      store.setFilter(filters[i % filters.length]);
-    };
+      i++
+      store.setFilter(filters[i % filters.length])
+    }
     return (
       <RowTitle
         text={dateStr}
@@ -26,6 +26,8 @@ export const DateTitle = inject('store')(
           </TouchableOpacity>
         }
       />
-    );
+    )
   })
-);
+)
+
+export default DateTitle

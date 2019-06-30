@@ -6,18 +6,17 @@ import {
   StyleSheet,
   Image
 } from 'react-native';
+import { inject } from 'mobx-react';
 import { Permissions } from 'expo';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { SmallText } from '../../../components/Texts/SmallText';
 import { Button } from 'react-native-paper';
-import { inject } from 'mobx-react';
+import  SmallText  from '../../../components/Texts/SmallText';
 
 @inject('store')
 export default class QR_Button extends Component {
   state = {
     hasCameraPermission: null,
-    scanned: false,
     QRVisible: true
   };
 

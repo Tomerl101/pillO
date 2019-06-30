@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components/native'
 
-export const Button = styled.TouchableOpacity`
+const Button = styled.TouchableOpacity`
   height: 40px;
   width: 100%;
   padding: 12px;
@@ -10,4 +10,5 @@ export const Button = styled.TouchableOpacity`
   margin-top: 15px;
   background-color: #5ed1ae;
   box-shadow: 0 5px 13px rgba(94, 209, 174, 0.4);
-`;
+`
+export default Button
