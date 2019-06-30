@@ -1,10 +1,105 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App snapshot renders the loading screen 1`] = `
-<ActivityIndicator
-  animating={true}
-  color="#0000ff"
-  hidesWhenStopped={true}
-  size="large"
-/>
+exports[`App snapshot renderer ProgressBar with 2 taken perscription 1`] = `
+<View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "flexDirection": "row",
+        "marginBottom": 12,
+        "marginLeft": 38,
+        "marginTop": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#fff",
+            "fontFamily": "Raleway-Regular",
+            "fontSize": 16,
+          },
+          Object {
+            "fontSize": 28,
+          },
+        ]
+      }
+    >
+      2
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#fff",
+            "fontFamily": "Raleway-Regular",
+            "fontSize": 16,
+          },
+          Object {
+            "color": "#1E6B53",
+          },
+        ]
+      }
+    >
+      / 4 dose taken
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "marginLeft": 42,
+      }
+    }
+  >
+    <View
+      animated={true}
+      animationConfig={
+        Object {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0.5}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#7bedca",
+            "borderColor": "white",
+            "borderRadius": 100,
+            "borderWidth": 0,
+            "overflow": "hidden",
+            "width": 300,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "white",
+            "height": 12,
+            "transform": Array [
+              Object {
+                "translateX": 0,
+              },
+              Object {
+                "translateX": -75,
+              },
+              Object {
+                "scaleX": 0.50005,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
 `;
