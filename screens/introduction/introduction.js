@@ -25,7 +25,7 @@ export default class Introduction extends Component {
   render() {
     const { isLogin } = this.state
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, paddingBottom: 30 }}>
         <Swiper>
           <Intro1 />
           <Intro2 />

@@ -91,8 +91,8 @@ export default class QR_Button extends Component {
             />
           </View>
         )}
-        <SmallText style={{ marginTop: 25 }}>{`Scan the QR of your medicine
-      to verify consumption`}</SmallText>
+        <SmallText style={{ marginTop: 25 }}>{`${scanned? `You took it like a Champ! `:`Scan the QR of your medicine
+      to verify consumption`}`}</SmallText>
       </View>
     );
   }

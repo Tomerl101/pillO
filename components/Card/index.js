@@ -31,7 +31,7 @@ const Card = ({ onPress, prescription }) => (
               {'Taken '}
             </Text>
           ) : (
-            `Take at: 09:00`
+            `Take at: ${prescription.time}`
           )}
         </Text>
       </View>

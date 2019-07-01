@@ -35,6 +35,15 @@ class UserStore {
   @action loadPerscriptions() {
     this.isLoading = true
     this.perscriptionsList = perscriptionsMockData
+    console.log('START')
+    //mock realtime show alarm after 15 sec
+    setTimeout(() => {
+      const clone = this.perscriptionsList.slice()
+      clone[1].timeToTake = 1561989376
+      this.perscriptionsList = clone
+      console.log('DONE')
+    }, 20000)
+
     this.isLoading = false
   }
 

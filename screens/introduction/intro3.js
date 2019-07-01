@@ -13,9 +13,9 @@ const Intro3 = () => {
         source={require('../../assets/images/undraw_order_confirmed_1m3v.png')}
       />
       <View style={{ margin: 20 }}>
-        <SubTitle style={styles.textStyle}>See Your Pill's Schdule</SubTitle>
+        <SubTitle style={styles.textStyle}>View History</SubTitle>
         <Text style={styles.textStyle}>
-          Lots of patients tend to forget about taking medication ..
+          After PillO verify your consumption, you would be able to see it in your history
         </Text>
       </View>
     </View>

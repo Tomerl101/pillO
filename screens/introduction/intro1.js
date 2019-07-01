@@ -15,7 +15,7 @@ const Intro1 = () => {
       <View style={{ margin: 20 }}>
         <SubTitle style={styles.textStyle}>See Your Pill's Schdule</SubTitle>
         <Text style={styles.textStyle}>
-          Lots of patients tend to forget about taking medication ..
+          PillO will remaind you when it is time to take your pill's prescription
         </Text>
       </View>
     </View>

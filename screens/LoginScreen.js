@@ -109,9 +109,9 @@ class LoginScreen extends Component {
           source={require('../assets/images/undraw_having_fun_iais.png')}
         />
         <View style={{ margin: 20 }}>
-          <SubTitle style={styles.textStyle}>Set Your Pill's Schdule</SubTitle>
+          <SubTitle style={styles.textStyle}>Sounds Good ?</SubTitle>
           <Text style={styles.textStyle}>
-            Lots of patients tend to forget about taking medication ..
+            To get start sign in with your Health maintenance organization account
           </Text>
         </View>
         <View style={{ textAlign: 'center', alignItems: 'center', padding: 30 }}>

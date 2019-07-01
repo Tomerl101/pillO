@@ -13,9 +13,9 @@ const Intro2 = () => {
         source={require('../../assets/images/undraw_camera_mg5h.png')}
       />
       <View style={{ margin: 20 }}>
-        <SubTitle style={styles.textStyle}>See Your Pill's Schdule</SubTitle>
+        <SubTitle style={styles.textStyle}>Scan Your QR Code</SubTitle>
         <Text style={styles.textStyle}>
-          Lots of patients tend to forget about taking medication ..
+          Scanning the QR code will take you one step forward to make sure you take your pills
         </Text>
       </View>
     </View>
