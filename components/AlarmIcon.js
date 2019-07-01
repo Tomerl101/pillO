@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
+import styles from './style'
 import { DangerZone } from 'expo'
 const { Lottie } = DangerZone
 
@@ -20,12 +20,3 @@ export default class AlarmIcon extends React.Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  IconStyle: {
-    width: 300,
-    height: 300,
-    position: 'absolute',
-    top: -65
-  }
-})

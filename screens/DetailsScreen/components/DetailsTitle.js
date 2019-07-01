@@ -1,10 +1,11 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { View } from 'react-native'
 import Row from '../../../components/Row'
 import Pill from '../../../components/Pill'
 import Title from '../../../components/Texts/Title'
 import MediumText from '../../../components/Texts/MediumText'
 import COLORS from '../../../constants/colors'
+import styles from './style'
 
 const DetailsTitle = ({ title, color }) => {
   return (
@@ -19,16 +20,3 @@ const DetailsTitle = ({ title, color }) => {
 }
 
 export default DetailsTitle
-
-const styles = StyleSheet.create({
-  containerStyles: {
-    justifyContent: 'space-between',
-    marginBottom: 25
-  },
-  darkBlueColor: {
-    color: '#2c3e50'
-  },
-  centerStyle: {
-    alignItems: 'center'
-  }
-})

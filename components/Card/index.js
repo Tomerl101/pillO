@@ -9,10 +9,11 @@ import Text from './components/Text'
 import Pill from '../Pill'
 import AlarmIcon from '../AlarmIcon'
 import COLORS from '../../constants/colors'
+import styles from './style'
 
 const Card = ({ onPress, prescription }) => (
   <TouchableOpacity onPress={onPress}>
-    <Root style={{ elevation: 5 }}>
+    <Root style={styles.elevation}>
       {isDatePassed(prescription.timeToTake) && !prescription.taken && <AlarmIcon />}
       <Pill colors={COLORS[prescription.taken ? 'GRAY' : prescription.color]} />
       <View>
@@ -25,7 +26,7 @@ const Card = ({ onPress, prescription }) => (
               <MaterialCommunityIcons
                 name="checkbox-marked-circle-outline"
                 size={22}
-                style={{ marginRight: 8 }}
+                style={styles.marginRight}
                 color="#00e6b8"
               />
               {'Taken '}

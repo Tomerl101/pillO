@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { ActivityIndicator, FlatList, View, TouchableOpacity, Linking } from 'react-native'
-import { Image } from 'react-native-elements'
+import { ActivityIndicator, FlatList, View, TouchableOpacity, Linking, Image } from 'react-native'
+// import { Image } from "react-native-elements";
 import COLORS from '../../../constants/colors'
 import MediumText from '../../../components/Texts/MediumText'
 import Root from '../../../components/ArticleCard'

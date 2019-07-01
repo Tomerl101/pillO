@@ -1,7 +1,7 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
 import { LinearGradient } from 'expo'
 import Row from './Row'
+import styles from './style'
 
 const Pill = ({ colors }) => {
   return (
@@ -21,29 +21,3 @@ const Pill = ({ colors }) => {
 }
 
 export default Pill
-const styles = StyleSheet.create({
-  rowStyle: {
-    shadowColor: '#000',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    paddingLeft: 0
-  },
-  pillStyle: {
-    marginLeft: 20,
-    borderRadius: 100,
-    borderWidth: 4,
-    borderColor: '#fff'
-  },
-  smallPillStyle: {
-    width: 25,
-    height: 50,
-    transform: [{ rotate: '63deg' }]
-  },
-  bigPillStyle: {
-    width: 35,
-    height: 70,
-    marginRight: -8,
-    transform: [{ rotate: '-35deg' }]
-  }
-})

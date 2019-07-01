@@ -1,10 +1,11 @@
 import React from 'react'
-import { View, StyleSheet, Image } from 'react-native'
+import { View, Image } from 'react-native'
 import { LinearGradient } from 'expo'
 import { inject, observer } from 'mobx-react'
 import Title from '../../../components/Texts/Title'
 import SubTitle from '../../../components/Texts/SubTitle'
 import ProgressBar from '../../../components/ProgressBar'
+import styles from './styles'
 
 const DashboardHeader = inject('store')(
   observer(({ store }) => {
@@ -25,28 +26,3 @@ const DashboardHeader = inject('store')(
 )
 
 export default DashboardHeader
-
-const styles = StyleSheet.create({
-  container: {
-    borderBottomLeftRadius: 80,
-    shadowColor: '#5ED1AE',
-    shadowOffset: { width: 1, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 10,
-    elevation: 3
-  },
-  colorView: {
-    paddingTop: 60,
-    paddingHorizontal: 30,
-    marginBottom: 20,
-    height: 265,
-    borderBottomLeftRadius: 80
-  },
-  pillStyle: {
-    width: 150,
-    height: 150,
-    position: 'absolute',
-    right: 0,
-    top: 65
-  }
-})

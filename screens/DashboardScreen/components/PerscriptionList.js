@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { StyleSheet, FlatList } from 'react-native'
+import { FlatList } from 'react-native'
 import { withNavigation } from 'react-navigation'
 import Card from '../../../components/Card'
-
+import styles from './styles'
 class PerscriptionList extends Component {
   onCardPress = item => {
     this.props.navigation.push('DetailsScreen', { item })
@@ -28,7 +28,3 @@ class PerscriptionList extends Component {
 }
 
 export default withNavigation(PerscriptionList)
-
-const styles = StyleSheet.create({
-  contentContainer: { marginBottom: 28 }
-})

@@ -37,7 +37,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   imageStyle: { width: '100%', height: '100%', borderRadius: 20 },
-  viewStyle: { width: '100%', height: 150 }
+  viewStyle: { width: '100%', height: 150 },
+  marginLeft: { marginLeft: 12 },
+  marginRight: { marginRight: 8 }
 })
 
 export default styles

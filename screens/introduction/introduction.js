@@ -6,6 +6,7 @@ import Intro1 from './intro1'
 import Intro2 from './intro2'
 import Intro3 from './intro3'
 import LoginScreen from '../LoginScreen'
+import styles from './style'
 
 export default class Introduction extends Component {
   state = { isLogin: false }
@@ -25,7 +26,7 @@ export default class Introduction extends Component {
   render() {
     const { isLogin } = this.state
     return (
-      <View style={{ flex: 1, paddingBottom: 30 }}>
+      <View style={styles.introductionViewStyle}>
         <Swiper>
           <Intro1 />
           <Intro2 />

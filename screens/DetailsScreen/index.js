@@ -67,7 +67,7 @@ export class DetailsScreen extends Component {
               )}
             />
             <List.Item
-              title="First Item"
+              title="Dexamol"
               description="Item description"
               left={props => (
                 <Image
@@ -87,7 +87,7 @@ export class DetailsScreen extends Component {
               )}
             />
             <List.Item
-              title="First Item"
+              title="Vitamin C"
               description="Item description"
               left={props => (
                 <Image
@@ -107,7 +107,7 @@ export class DetailsScreen extends Component {
               )}
             />
             <List.Item
-              title="First Item"
+              title="Acamol"
               description="Item description"
               left={props => (
                 <Image
@@ -128,7 +128,7 @@ export class DetailsScreen extends Component {
             />
 
             <List.Item
-              title="First Item"
+              title="Vitamin D"
               description="Item description"
               left={props => (
                 <Image

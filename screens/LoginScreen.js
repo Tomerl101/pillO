@@ -108,13 +108,13 @@ class LoginScreen extends Component {
           style={styles.imageStyle}
           source={require('../assets/images/undraw_having_fun_iais.png')}
         />
-        <View style={{ margin: 20 }}>
+        <View style={styles.margin}>
           <SubTitle style={styles.textStyle}>Sounds Good ?</SubTitle>
           <Text style={styles.textStyle}>
             To get start sign in with your Health maintenance organization account
           </Text>
         </View>
-        <View style={{ textAlign: 'center', alignItems: 'center', padding: 30 }}>
+        <View style={styles.viewStyle}>
           <Button title="Get Started !" onPress={this.signInWithGoogleAsync}>
             <Text>JOIN NOW!</Text>
           </Button>

@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import RowTitle from '../../../components/RowTitle'
+import styles from './styles'
 
 const ArticlesTitle = () => {
   return (
@@ -15,8 +16,3 @@ const ArticlesTitle = () => {
 }
 
 export default ArticlesTitle
-
-const styles = StyleSheet.create({
-  marginLeft: { marginLeft: 12 },
-  marginRight: { marginRight: 8 }
-})

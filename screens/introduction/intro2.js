@@ -12,7 +12,7 @@ const Intro2 = () => {
         style={styles.imageStyle}
         source={require('../../assets/images/undraw_camera_mg5h.png')}
       />
-      <View style={{ margin: 20 }}>
+      <View style={styles.margin}>
         <SubTitle style={styles.textStyle}>Scan Your QR Code</SubTitle>
         <Text style={styles.textStyle}>
           Scanning the QR code will take you one step forward to make sure you take your pills

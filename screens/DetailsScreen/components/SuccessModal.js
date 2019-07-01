@@ -1,11 +1,11 @@
 import React from 'react'
-import { StyleSheet, View, Image } from 'react-native'
+import { View, Image } from 'react-native'
 import { inject, observer } from 'mobx-react'
 import Modal from 'react-native-modal'
 import Text from '../../../components/Texts/Text'
 import Button from '../../../components/Button'
 import MediumText from '../../../components/Texts/MediumText'
-
+import styles from './style'
 const SuccessModal = inject('store')(
   observer(({ store, onModalPress }) => {
     const { isModalVisible } = store
@@ -31,21 +31,3 @@ const SuccessModal = inject('store')(
 )
 
 export default SuccessModal
-
-const styles = StyleSheet.create({
-  modalBodyStyle: {
-    backgroundColor: 'white',
-    borderRadius: 8,
-    padding: 30,
-    borderColor: 'rgba(0, 0, 0, 0.1)'
-  },
-  headerText: {
-    textAlign: 'center',
-    fontSize: 24,
-    fontFamily: 'Raleway-SemiBold'
-  },
-  successImageStyle: {
-    width: '100%',
-    height: 260
-  }
-})

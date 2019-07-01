@@ -12,7 +12,7 @@ const Intro3 = () => {
         style={styles.imageStyle}
         source={require('../../assets/images/undraw_order_confirmed_1m3v.png')}
       />
-      <View style={{ margin: 20 }}>
+      <View style={styles.margin}>
         <SubTitle style={styles.textStyle}>View History</SubTitle>
         <Text style={styles.textStyle}>
           After PillO verify your consumption, you would be able to see it in your history

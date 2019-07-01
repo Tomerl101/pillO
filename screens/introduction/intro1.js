@@ -12,7 +12,7 @@ const Intro1 = () => {
         style={styles.imageStyle}
         source={require('../../assets/images/undraw_time_management_30iu.png')}
       />
-      <View style={{ margin: 20 }}>
+      <View style={styles.margin}>
         <SubTitle style={styles.textStyle}>See Your Pill's Schdule</SubTitle>
         <Text style={styles.textStyle}>
           PillO will remaind you when it is time to take your pill's prescription
