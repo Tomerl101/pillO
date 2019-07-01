@@ -10,6 +10,27 @@
   "jest": {
     "preset": "jest-expo"
   },
+  "checkSubmission": {
+    "ex": "Final Project",
+    "students": [
+      {
+        "id": "203289673",
+        "fullName": "Tomer Lotan",
+        "email": "tomerl101@gmail.com"
+      },
+      {
+        "id": "207599176",
+        "fullName": "Noa Eylon",
+        "email": "noaeylon2@gmail.com"
+      }
+    ],
+    "os": "Mac",
+    "device": "iOS",
+    "deliveryDate": "04/29/2019",
+    "delay": false,
+    "delayReason": "string",
+    "comments": "best using with iphone XR simulator "
+  },
   "dependencies": {
     "expo": "^32.0.0",
     "firebase": "^6.1.0",
