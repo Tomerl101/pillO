@@ -16,7 +16,4 @@ CPA and Ministry of Health. Controlled consumption of the drug
 Minimize the sick, save a lot of money and reduce medication
 For that purpose.
 
-[image] (https://i.imgur.com/wL6tSOd.png)
-
-Inline-style: 
 ![alt text](https://i.imgur.com/wL6tSOd.png "PillO image")
